@@ -455,9 +455,84 @@
     .section { padding: 2rem; }
     .hero { padding: 2rem; }
   }
+
+  /* ---- COLLAPSIBLE SECTIONS ---- */
+  .section summary.section-header {
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+    padding-right: 3rem;
+  }
+  .section summary.section-header::-webkit-details-marker { display: none; }
+  .section summary.section-header::marker { display: none; content: ''; }
+  .section summary.section-header::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    top: 0.5rem;
+    font-size: 1.8rem;
+    font-weight: 200;
+    color: var(--gold-muted);
+    opacity: 0.5;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .section summary.section-header:hover::after {
+    opacity: 1;
+  }
+  .section[open] summary.section-header::after {
+    content: '\2212';
+  }
+  .section-body {
+    padding-top: 0.5rem;
+  }
+
+  /* ---- ACTIVE TOC ---- */
+  .toc a.active {
+    color: var(--gold-light) !important;
+    background: rgba(176,137,96,0.12);
+  }
+
+  /* ---- PROGRESS BAR ---- */
+  .progress-bar {
+    position: fixed;
+    top: 0;
+    left: 280px;
+    right: 0;
+    height: 3px;
+    background: var(--gold-gradient);
+    z-index: 200;
+    transform-origin: left;
+    transform: scaleX(0);
+  }
+
+  /* ---- VISIBLE SECTION DIVIDERS ---- */
+  .divider {
+    display: block !important;
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-mid), transparent);
+    margin: 0 48px;
+    opacity: 0.25;
+  }
+
+  /* ---- TEXT MAX WIDTH ---- */
+  .section-body > p,
+  .section-body > .callout {
+    max-width: 850px;
+  }
+
+  @media (max-width: 1100px) {
+    .progress-bar { left: 0; }
+  }
+  @media (max-width: 900px) {
+    .section summary.section-header { padding-right: 2rem; }
+    .section summary.section-header::after { right: 0; font-size: 1.4rem; }
+  }
 </style>
 </head>
 <body>
+
+<div class="progress-bar" id="progressBar"></div>
 
 <!-- ============ TOC ============ -->
 <nav class="toc">
@@ -510,9 +585,12 @@
   </div>
 
   <!-- ============ 1. IZHODIŠČE + PRIORITETA ============ -->
-  <div class="section" id="reality">
+  <details class="section" id="reality" open>
+    <summary class="section-header">
     <div class="section-number">01</div>
     <h2>Izhodišče in prioriteta platform</h2>
+    </summary>
+    <div class="section-body">
 
     <div style="display: grid; grid-template-columns: 1fr 1.6fr; gap: 32px; align-items: start;">
 
@@ -592,14 +670,18 @@
         </table>
       </div>
     </div>
-  </div>
+    </div>
+  </details>
 
   <hr class="divider">
 
   <!-- ============ 2. LINKEDIN ============ -->
-  <div class="section" id="linkedin">
+  <details class="section" id="linkedin">
+    <summary class="section-header">
     <div class="section-number">02</div>
     <h2>LinkedIn - podrobno</h2>
+    </summary>
+    <div class="section-body">
     <p>Najpomembnejši promocijski kanal. Dva ločena pristopa za dva ločena kanala.</p>
 
     <h3>A) Rok Kokalj - osebni profil (motor rasti)</h3>
@@ -744,14 +826,18 @@ Razmislite, kdaj ste bili nazadnje zares gostoljubni?
         <p>5-7 diapozitivov: temno ozadje, zlati poudarki, citat gosta + Rokov komentar. PDF/carousel format.</p>
       </div>
     </div>
-  </div>
+    </div>
+  </details>
 
   <hr class="divider">
 
   <!-- ============ 4. YOUTUBE ============ -->
-  <div class="section" id="youtube">
+  <details class="section" id="youtube">
+    <summary class="section-header">
     <div class="section-number">03</div>
     <h2>YouTube - podrobno</h2>
+    </summary>
+    <div class="section-body">
     <p>YouTube je iskalnik. Dolgoročno je to glavni kanal za odkrivanje novih poslušalcev, ker ljudje aktivno iščejo teme o hotelirstvu, turizmu in gostoljubju.</p>
 
     <h3>Optimizacija epizod</h3>
@@ -844,14 +930,18 @@ Apple Podcasts: https://podcasts.apple.com/us/podcast/hostfulness-pogovori-o-gos
       </div>
     </div>
     <p><strong>Angleški podnapisi na vseh epizodah.</strong> Omogoči algoritmom, da epizodo priporočijo tudi mednarodni publiki. Pokaže profesionalnost. Odpre vrata za morebitne angleške epizode.</p>
-  </div>
+    </div>
+  </details>
 
   <hr class="divider">
 
   <!-- ============ 5. SPOTIFY + APPLE ============ -->
-  <div class="section" id="spotify">
+  <details class="section" id="spotify">
+    <summary class="section-header">
     <div class="section-number">04</div>
     <h2>Spotify + Apple Podcasts</h2>
+    </summary>
+    <div class="section-body">
     <p>Osnovna distribucija. Ljudje, ki odkrijejo podcast drugje, ga tukaj poslušajo redno.</p>
 
     <h3>Opis podcasta</h3>
@@ -880,14 +970,18 @@ Sproščeni pogovori z globljim podtonom.</div>
       </div>
     </div>
     <p>Oddaj podcast tudi na Amazon Music, Pocket Casts, Podbean in vse manjše platforme.</p>
-  </div>
+    </div>
+  </details>
 
   <hr class="divider">
 
   <!-- ============ 6. INSTAGRAM ============ -->
-  <div class="section" id="instagram">
+  <details class="section" id="instagram">
+    <summary class="section-header">
     <div class="section-number">05</div>
     <h2>Instagram</h2>
+    </summary>
+    <div class="section-body">
     <p>Vizualna platforma za gradnjo blagovne znamke. Ne bo glavni vir novih poslušalcev, ampak okrepi identiteto in toplino podcasta.</p>
 
     <h3>Vsebinski stebri</h3>
@@ -930,14 +1024,18 @@ Je način, kako se zavestno obrnemo k drugemu človeku.
       <div class="card"><h4>"Gostoljubje"</h4><p>Rokove misli in citati</p></div>
       <div class="card"><h4>"Gosti"</h4><p>Kratke predstavitve gostov</p></div>
     </div>
-  </div>
+    </div>
+  </details>
 
   <hr class="divider">
 
   <!-- ============ 7. FACEBOOK ============ -->
-  <div class="section" id="facebook">
+  <details class="section" id="facebook">
+    <summary class="section-header">
     <div class="section-number">06</div>
     <h2>Facebook</h2>
+    </summary>
+    <div class="section-body">
     <p>Slovenska hotelirska publika 40+ je še vedno močno na Facebooku. Predvsem Facebook skupine so dragocen kanal.</p>
 
     <h3>Facebook stran</h3>
@@ -985,14 +1083,18 @@ Je način, kako se zavestno obrnemo k drugemu človeku.
       <div class="callout-title">Pravilo</div>
       <p>Nikoli ne objavljaj samo povezav. Vedno dodaj kontekst, zgodbo, vprašanje. Skupine kaznujejo gole promocijske objave.</p>
     </div>
-  </div>
+    </div>
+  </details>
 
   <hr class="divider">
 
   <!-- ============ 8. TIKTOK + X ============ -->
-  <div class="section" id="other">
+  <details class="section" id="other">
+    <summary class="section-header">
     <div class="section-number">07</div>
     <h2>TikTok + X</h2>
+    </summary>
+    <div class="section-body">
 
     <div class="grid-2">
       <div class="card">
@@ -1012,14 +1114,18 @@ Every time we meet another person, we are either a host or a guest.
 The question is always the same: how do we receive them?
 
 #hostfulness</div>
-  </div>
+    </div>
+  </details>
 
   <hr class="divider">
 
   <!-- ============ SPLETNA STRAN ============ -->
-  <div class="section" id="website">
+  <details class="section" id="website">
+    <summary class="section-header">
     <div class="section-number">08</div>
     <h2>Spletna stran hostfulness.com</h2>
+    </summary>
+    <div class="section-body">
     <p>Vsebinsko usmerjena pristajalna stran za podcast. Ne dizajnerska vitrina, ampak funkcionalen hub, kamor pošlješ vsakogar, ki ga zanima podcast. Referenca: kako Mews pristopa k svojemu podcastu Matt Talks - čisto, preprosto, vsebina v ospredju.</p>
 
     <h3>Struktura strani</h3>
@@ -1136,14 +1242,18 @@ The question is always the same: how do we receive them?
       <div class="callout-title">Zakaj spletna stran</div>
       <p>Vsak kanal (LinkedIn, YouTube, Spotify) je "najet prostor" - algoritmi se spreminjajo, pravila se spreminjajo. Spletna stran + email lista sta edina kanala, ki ju res lasti. Vse promocijske aktivnosti morajo dolgoročno voditi sem.</p>
     </div>
-  </div>
+    </div>
+  </details>
 
   <hr class="divider">
 
   <!-- ============ VSEBINSKI STROJ ============ -->
-  <div class="section" id="engine">
+  <details class="section" id="engine">
+    <summary class="section-header">
     <div class="section-number">09</div>
     <h2>Content mašina</h2>
+    </summary>
+    <div class="section-body">
     <p>Vsaka epizoda mora proizvesti <strong>12-15 kosov vsebine</strong>. Tukaj je natančen protokol od snemanja do zadnje objave.</p>
 
     <h3>Pred objavo epizode (3-5 dni prej)</h3>
@@ -1196,14 +1306,18 @@ The question is always the same: how do we receive them?
       <div class="flow-arrow">&rarr;</div>
       <div class="flow-step">Refleksija (D+7)</div>
     </div>
-  </div>
+    </div>
+  </details>
 
   <hr class="divider">
 
   <!-- ============ 9. GOSTOVA PROMOCIJA ============ -->
-  <div class="section" id="guest">
+  <details class="section" id="guest">
+    <summary class="section-header">
     <div class="section-number">10</div>
     <h2>Gostova navzkrižna promocija</h2>
+    </summary>
+    <div class="section-body">
     <p>Najcenejši in najučinkovitejši promocijski kanal. Vsak gost ima svoje občinstvo - in če mu olajšaš deljenje, bo delil.</p>
 
     <h3>Pred snemanjem</h3>
@@ -1232,14 +1346,18 @@ The question is always the same: how do we receive them?
       </div>
     </div>
 
-  </div>
+    </div>
+  </details>
 
   <hr class="divider">
 
   <!-- ============ 11. SKUPNOST + MEDIJI ============ -->
-  <div class="section" id="community">
+  <details class="section" id="community">
+    <summary class="section-header">
     <div class="section-number">11</div>
     <h2>Skupnost in mediji</h2>
+    </summary>
+    <div class="section-body">
 
     <h3>Institucije in združenja</h3>
     <div class="grid-4">
@@ -1360,14 +1478,18 @@ Kaj ga je pripeljalo do tega: po dveh desetletjih opazovanja industrije od zunaj
         <tr><td><strong>Poslovni podcasti</strong></td><td>Rok gostuje kot podjetnik in govori o konceptu hostfulness v poslovnem kontekstu.</td></tr>
       </tbody>
     </table>
-  </div>
+    </div>
+  </details>
 
   <hr class="divider">
 
   <!-- ============ 12. PLAČANA PROMOCIJA ============ -->
-  <div class="section" id="paid">
+  <details class="section" id="paid">
+    <summary class="section-header">
     <div class="section-number">12</div>
     <h2>Plačana promocija</h2>
+    </summary>
+    <div class="section-body">
 
     <div class="callout">
       <div class="callout-title">Ne takoj</div>
@@ -1392,14 +1514,18 @@ Kaj ga je pripeljalo do tega: po dveh desetletjih opazovanja industrije od zunaj
         <p><strong>Cilj kampanje:</strong> Video views (ne klik na povezavo - to je predrago za podcast).</p>
       </div>
     </div>
-  </div>
+    </div>
+  </details>
 
   <hr class="divider">
 
   <!-- ============ 13. NEWSLETTER ============ -->
-  <div class="section" id="newsletter">
+  <details class="section" id="newsletter">
+    <summary class="section-header">
     <div class="section-number">13</div>
     <h2>Email + LinkedIn newsletter</h2>
+    </summary>
+    <div class="section-body">
     <p>Dva ločena newslettra z različnim namenom. LinkedIn Newsletter za širjenje dosega, Email Newsletter za gradnjo lastne baze. Oba izhajata na 2 tedna, ob objavi epizode.</p>
 
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 2rem;">
@@ -1588,14 +1714,18 @@ Kaj ga je pripeljalo do tega: po dveh desetletjih opazovanja industrije od zunaj
       <div class="callout-title">Ključno pravilo</div>
       <p><strong>Vsaka promocijska aktivnost mora imeti pot do email prijave.</strong> LinkedIn objava &rarr; hostfulness.com &rarr; signup. YouTube epizoda &rarr; opis &rarr; hostfulness.com &rarr; signup. Gostovo deljenje &rarr; hostfulness.com &rarr; signup. Ciljna stran je vedno ena: hostfulness.com.</p>
     </div>
-  </div>
+    </div>
+  </details>
 
   <hr class="divider">
 
   <!-- ============ 14. EMAIL PREDLOGE ============ -->
-  <div class="section" id="emails">
+  <details class="section" id="emails">
+    <summary class="section-header">
     <div class="section-number">14</div>
     <h2>Email predloge - celoten tok</h2>
+    </summary>
+    <div class="section-body">
     <p>Trije ključni emaili spremljajo vsako epizodo: vabilo, brief pred snemanjem, in paket po objavi. Tukaj so predloge za vse tri.</p>
 
     <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-bottom: 1.5rem;">
@@ -1731,14 +1861,18 @@ Rok</div>
       <div class="callout-title">Tok treh emailov</div>
       <p>Vabilo (prvi kontakt) &rarr; Brief (pred snemanjem) &rarr; Paket (po objavi). Vsak email zmanjša trenje in poveča verjetnost, da gost aktivno sodeluje v promociji epizode.</p>
     </div>
-  </div>
+    </div>
+  </details>
 
   <hr class="divider">
 
   <!-- ============ 15. MANIFESTO ============ -->
-  <div class="section" id="manifesto">
+  <details class="section" id="manifesto">
+    <summary class="section-header">
     <div class="section-number">15</div>
     <h2>Manifesto</h2>
+    </summary>
+    <div class="section-body">
     <p>Vir resnice za vse, kar nosi ime Hostfulness. Vsaka beseda, vsaka grafika, vsaka objava mora dihati ta manifesto.</p>
 
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 1.5rem;">
@@ -1826,14 +1960,18 @@ Rok</div>
         <p style="font-size: 0.82rem;">Pritegne, nikoli ne predava ali moralizira</p>
       </div>
     </div>
-  </div>
+    </div>
+  </details>
 
   <hr class="divider">
 
   <!-- ============ 16. TRANSKRIPTA ============ -->
-  <div class="section" id="transcripts">
+  <details class="section" id="transcripts">
+    <summary class="section-header">
     <div class="section-number">16</div>
     <h2>Transkripta epizod</h2>
+    </summary>
+    <div class="section-body">
     <p>Povzetki obeh objavljenih epizod z vsem materialom za YouTube: opisi, chapteri, citati, naslovi, thumbnail ideje.</p>
 
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 1.5rem;">
@@ -1945,14 +2083,18 @@ Rok</div>
       </div>
 
     </div>
-  </div>
+    </div>
+  </details>
 
   <hr class="divider">
 
   <!-- ============ 16. PRODUKCIJSKI KOLEDAR ============ -->
-  <div class="section" id="calendar">
+  <details class="section" id="calendar" open>
+    <summary class="section-header">
     <div class="section-number">17</div>
     <h2>Produkcijski koledar</h2>
+    </summary>
+    <div class="section-body">
     <p>Objave na vsaka 2 tedna, ob ponedeljkih. Iz vsake epizode naredimo <strong>10 kratkih izrezkov</strong>, ki jih razporedimo čez celoten dvotedenski cikel na <strong>vse platforme</strong> (YT Shorts, IG Reels, TikTok, Hostfulness LinkedIn, Facebook). Rok na svojem LinkedIn profilu deli kratke filme s Hostfulness strani.</p>
 
     <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:1.2rem;padding:16px 20px;background:rgba(255,255,255,0.03);border:1px solid var(--white-08);border-radius:8px;">
@@ -2434,14 +2576,18 @@ Rok</div>
   </table>
 </div>
     </div>
-  </div>
+    </div>
+  </details>
 
   <hr class="divider">
 
   <!-- ============ 17. ČASOVNICA ============ -->
-  <div class="section" id="timeline">
+  <details class="section" id="timeline">
+    <summary class="section-header">
     <div class="section-number">18</div>
     <h2>12-tedenski izvedbeni načrt</h2>
+    </summary>
+    <div class="section-body">
     <p>Ob dvotedenskem ciklu objav je promocija raztegnjena - vsak teden ima svojo vlogo. Načrt upošteva, da moramo iz vsake epizode potegniti čim več materialov.</p>
 
     <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-bottom: 1.5rem;">
@@ -2540,14 +2686,18 @@ Rok</div>
       </div>
 
     </div>
-  </div>
+    </div>
+  </details>
 
   <hr class="divider">
 
   <!-- ============ 18. DISTRIBUCIJA ============ -->
-  <div class="section" id="distribution">
+  <details class="section" id="distribution">
+    <summary class="section-header">
     <div class="section-number">19</div>
     <h2>Distribucija na manjše platforme</h2>
+    </summary>
+    <div class="section-body">
     <p>Poleg YouTube, Spotify in Apple Podcasts je vredno biti prisoten na manjših platformah. Tehnično je to zelo preprosto - potrebuješ samo RSS feed.</p>
 
     <div class="grid-2">
@@ -2580,14 +2730,18 @@ Rok</div>
       <div class="callout-title">Priporočilo</div>
       <p>Oddaj RSS na vseh 10 zgoraj navedenih platformah. To je enkraten vložek 1-2 uri, potem pa avtomatska distribucija za vedno. Tega ne razglašaj javno - je tiha širitev dosega. Na spletni strani in v komunikaciji navajaj samo glavne platforme (YouTube, Spotify, Apple).</p>
     </div>
-  </div>
+    </div>
+  </details>
 
   <hr class="divider">
 
   <!-- ============ 19. METRIKE ============ -->
-  <div class="section" id="metrics">
+  <details class="section" id="metrics">
+    <summary class="section-header">
     <div class="section-number">20</div>
     <h2>Merjenje uspeha</h2>
+    </summary>
+    <div class="section-body">
     <p>Cilji po 12 tednih organskega dela:</p>
 
     <div class="grid-3">
@@ -2621,14 +2775,18 @@ Rok</div>
       <div class="callout-title">Najpomembnejša metrika</div>
       <p>Ne število sledilcev, ampak <strong>kakovost pogovorov</strong> - komentarji, sporočila, ljudje, ki se javijo kot potencialni gosti podcasta. To pomeni, da sporočilo pristaja.</p>
     </div>
-  </div>
+    </div>
+  </details>
 
   <hr class="divider">
 
   <!-- ============ 20. ČESA NE POČNEMO ============ -->
-  <div class="section" id="donts">
+  <details class="section" id="donts">
+    <summary class="section-header">
     <div class="section-number">21</div>
     <h2>Česa NE počnemo</h2>
+    </summary>
+    <div class="section-body">
     <p>V skladu z manifestom. Ta pravila so nenegociabilna.</p>
 
     <div class="grid-3">
@@ -2657,7 +2815,8 @@ Rok</div>
         <p>"Sinergija," "leveraging," "ekosistem" - ne obstaja v hostfulness besednjaku.</p>
       </div>
     </div>
-  </div>
+    </div>
+  </details>
 
   <!-- FOOTER -->
   <div style="text-align: center; padding: 3rem 48px 2rem; color: var(--white-40); font-size: 0.75rem; border-top: 1px solid rgba(255,255,255,0.08);">
@@ -2667,5 +2826,55 @@ Rok</div>
 
 </div>
 
+
+<script>
+// ---- Scroll progress bar ----
+const progressBar = document.getElementById('progressBar');
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = docHeight > 0 ? scrollTop / docHeight : 0;
+  progressBar.style.transform = 'scaleX(' + Math.min(progress, 1) + ')';
+}, { passive: true });
+
+// ---- Active TOC highlighting ----
+const tocLinks = document.querySelectorAll('.toc a[href^="#"]');
+const sectionEls = [];
+tocLinks.forEach(link => {
+  const id = link.getAttribute('href').slice(1);
+  const el = document.getElementById(id);
+  if (el) sectionEls.push({ el, link });
+});
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    const match = sectionEls.find(s => s.el === entry.target);
+    if (match) {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(l => l.classList.remove('active'));
+        match.link.classList.add('active');
+        // Scroll TOC to show active link
+        match.link.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      }
+    }
+  });
+}, {
+  rootMargin: '-10% 0px -80% 0px',
+  threshold: 0
+});
+
+sectionEls.forEach(s => observer.observe(s.el));
+
+// ---- Expand section when clicking TOC link ----
+tocLinks.forEach(link => {
+  link.addEventListener('click', e => {
+    const id = link.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if (el && el.tagName === 'DETAILS' && !el.open) {
+      el.open = true;
+    }
+  });
+});
+</script>
 </body>
 </html>
