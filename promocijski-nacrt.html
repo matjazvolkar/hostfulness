@@ -276,6 +276,10 @@
     color: var(--white-70);
     line-height: 1.8;
     white-space: pre-wrap;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    max-width: 100%;
+    overflow-x: hidden;
   }
   .example-label {
     font-size: 0.65rem;
@@ -843,6 +847,10 @@ Razmislite, kdaj ste bili nazadnje zares gostoljubni?
     <h2>YouTube - podrobno</h2>
     <p>YouTube je iskalnik. Dolgoročno je to glavni kanal za odkrivanje novih poslušalcev, ker ljudje aktivno iščejo teme o hotelirstvu, turizmu in gostoljubju.</p>
 
+    <div style="display: grid; grid-template-columns: 1.6fr 1fr; gap: 32px; align-items: start;">
+
+    <!-- LEVO: obstoječa vsebina -->
+    <div>
     <h3>Optimizacija epizod</h3>
 
     <h4>Naslovi - formula</h4>
@@ -933,6 +941,110 @@ Apple Podcasts: https://podcasts.apple.com/us/podcast/hostfulness-pogovori-o-gos
       </div>
     </div>
     <p><strong>Angleški podnapisi na vseh epizodah.</strong> Omogoči algoritmom, da epizodo priporočijo tudi mednarodni publiki. Pokaže profesionalnost. Odpre vrata za morebitne angleške epizode.</p>
+    </div>
+
+    <!-- DESNO: strategija rasti -->
+    <div style="position: sticky; top: 24px; align-self: start;">
+
+      <div class="card card-gold" style="margin-bottom: 16px;">
+        <div class="card-label">Algoritem 2026</div>
+        <h4>Kaj YouTube danes meri</h4>
+        <p style="font-size: 0.82rem;">YouTube ne meri samo gledanosti, ampak <strong>zadovoljstvo gledalca</strong>. Kratek video s 100 % retencijo + like premaga 20-minutni video s 40 % retencijo.</p>
+        <ul class="styled" style="font-size: 0.82rem;">
+          <li><strong>CTR sličice</strong> - cilj 4-10 %</li>
+          <li><strong>Stopnja retencije</strong> - ključni signal</li>
+          <li><strong>Zadovoljstvo</strong> - lajki, ankete, deljenja</li>
+          <li><strong>Čas seje</strong> - koliko časa gledalec ostane na YT</li>
+        </ul>
+        <p style="font-size: 0.78rem; color: var(--gold-muted); margin-top: 0.5rem;">Podcast vsebina (30+ min) ima v 2025-26 <strong>35-45 % boljšo</strong> algoritmično promocijo kot leto prej.</p>
+      </div>
+
+      <div class="card" style="margin-bottom: 16px;">
+        <div class="card-label">Prvih 48 ur</div>
+        <h4>Strategija po objavi</h4>
+        <ul class="styled" style="font-size: 0.82rem;">
+          <li>Objavi <strong>1-2 uri pred</strong> vrhuncem aktivnosti publike</li>
+          <li><strong>Prva ura je kritična</strong> - deli na vse platforme takoj</li>
+          <li>Odgovori na <strong>vsak komentar</strong> v prvih 2-3 urah</li>
+          <li>Cilj: <strong>6 %+ engagement rate</strong> za algoritmični boost</li>
+          <li>Pošlji newsletter na dan objave - poganja začetne oglede</li>
+        </ul>
+        <p style="font-size: 0.78rem; color: var(--white-50); margin-top: 0.5rem;">Video, ki ne zaživi v 48 urah, redko zaživi pozneje.</p>
+      </div>
+
+      <div class="card" style="margin-bottom: 16px;">
+        <div class="card-label">Shorts &rarr; celotna epizoda</div>
+        <h4>Lijak iz kratkih v dolge</h4>
+        <p style="font-size: 0.82rem;">Kanali, ki objavljajo Shorts + dolge videe, rastejo <strong>3x hitreje</strong> od enoformatnih kanalov.</p>
+        <ul class="styled" style="font-size: 0.82rem;">
+          <li><strong>Specifičen CTA</strong> deluje 2-3x bolje kot generičen: "Celotna zgodba o [tema] - link v opisu"</li>
+          <li>Na koncu vsakega Shorta <strong>verbalni teaser</strong> - kaj se zgodi v polni epizodi</li>
+          <li>Shorts s CTA v opisu/komentarjih dobijo <strong>22 % več interakcij</strong></li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-bottom: 16px;">
+        <div class="card-label">Retencija dolge epizode</div>
+        <h4>Struktura za 60+ min</h4>
+        <ul class="styled" style="font-size: 0.82rem;">
+          <li><strong>Hladen začetek</strong>: prvih 5 sek = najmočnejši 15-sek izsek iz pogovora, brez logotipov in uvodov</li>
+          <li><strong>Poglavja so obvezna</strong> - gledalci, ki lahko preskočijo, ostanejo dlje kot tisti, ki odidejo</li>
+          <li><strong>Vizualni prekinjevalci</strong> na 3-5 min: B-roll, grafike, zoom spremembe</li>
+          <li>Za 60-min podcast: <strong>25-35 % retencija = zdrava</strong> (15-21 min povpr. čas gledanja)</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-bottom: 16px;">
+        <div class="card-label">Optimizacija Shorts</div>
+        <h4>Pravila za kratke izrezke</h4>
+        <ul class="styled" style="font-size: 0.82rem;">
+          <li>Idealna dolžina: <strong>20-35 sekund</strong></li>
+          <li><strong>Hook v prvih 2-3 sek</strong> - 50-60 % gledalcev odide tukaj</li>
+          <li>Začni z bistvom, ne s kontekstom</li>
+          <li><strong>Vgrajeni podnapisi</strong> povečajo retencijo za 15-25 %</li>
+          <li>Veliki, kontrastni, word-by-word animirani napisi</li>
+          <li>Algoritma za Shorts in dolge videe sta <strong>popolnoma ločena</strong></li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-bottom: 16px;">
+        <div class="card-label">Skupnost</div>
+        <h4>Engagement, ki šteje</h4>
+        <ul class="styled" style="font-size: 0.82rem;">
+          <li><strong>3-4 community posti/teden</strong> med objavami: napovedi, vprašanja, izsledki</li>
+          <li><strong>Ankete</strong> = najboljši format (najnižji prag: en klik)</li>
+          <li>Pripni <strong>dober komentar gledalca</strong> namesto svojega - spodbudi udeležbo</li>
+          <li>Aktivne skupnosti dobijo <strong>15-25 % več priporočil</strong> algoritma</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-bottom: 16px;">
+        <div class="card-label">Playlisti in serije</div>
+        <h4>Organizacija kanala</h4>
+        <ul class="styled" style="font-size: 0.82rem;">
+          <li>Označi playlist kot <strong>"Podcast"</strong> v YT Studio - odklene Podcasts zavihek, badge, predvajanje na YT Music</li>
+          <li>Poleg kronološkega zaporedja ustvari <strong>tematske playliste</strong>: "Butični hoteli", "Izkušnja gosta", "Filozofija gostoljubja"</li>
+          <li><strong>40 % odkrivanja</strong> podcastov se zgodi prek iskanja - optimiziraj naslove</li>
+        </ul>
+      </div>
+
+      <div class="card" style="border-color: rgba(255,0,0,0.15); background: rgba(255,0,0,0.04);">
+        <div class="card-label" style="color: #FF6B6B;">Ciljne metrike</div>
+        <h4>Kaj merimo</h4>
+        <table style="font-size: 0.78rem; width: 100%;">
+          <thead><tr><th style="text-align: left; padding: 4px 6px; font-size: 0.7rem; color: var(--white-50);">Metrika</th><th style="text-align: center; padding: 4px 6px; font-size: 0.7rem; color: var(--white-50);">Cilj</th><th style="text-align: center; padding: 4px 6px; font-size: 0.7rem; color: var(--white-50);">Odlično</th></tr></thead>
+          <tbody>
+            <tr><td style="padding: 4px 6px;">CTR sličice</td><td style="text-align: center; padding: 4px 6px;">4-6 %</td><td style="text-align: center; padding: 4px 6px; color: var(--gold-light);">6-10 %</td></tr>
+            <tr><td style="padding: 4px 6px;">Retencija (60 min)</td><td style="text-align: center; padding: 4px 6px;">25-35 %</td><td style="text-align: center; padding: 4px 6px; color: var(--gold-light);">35 %+</td></tr>
+            <tr><td style="padding: 4px 6px;">Povpr. gledanje</td><td style="text-align: center; padding: 4px 6px;">15-20 min</td><td style="text-align: center; padding: 4px 6px; color: var(--gold-light);">20+ min</td></tr>
+            <tr><td style="padding: 4px 6px;">Engagement</td><td style="text-align: center; padding: 4px 6px;">4-6 %</td><td style="text-align: center; padding: 4px 6px; color: var(--gold-light);">6 %+</td></tr>
+            <tr><td style="padding: 4px 6px;">Shorts swipe-away</td><td style="text-align: center; padding: 4px 6px;">&lt;50 %</td><td style="text-align: center; padding: 4px 6px; color: var(--gold-light);">&lt;35 %</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+    </div>
   </div>
 
   <hr class="divider">
