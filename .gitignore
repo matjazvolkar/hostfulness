@@ -1,0 +1,15 @@
+# Javni repozitorij (GitHub Pages). Objavljajo se samo poimensko dodane datoteke.
+*dostopi*
+*.diff
+*.config.*.json
+navodila-*.txt
+linkedin-ads-*.txt
+linkedin-organic-*.txt
+ig-insights/
+ig-oglasi/
+en-shorts-ads/
+en-shorts-tools/
+instagram-placljivi-oglasi-strategija-*.html
+*.pred-insights.bak.html
+promocijski-nacrt.20261020*.bak.html
+Shorti-urejevalnik.cmd
