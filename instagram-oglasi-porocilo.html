@@ -132,10 +132,17 @@
   .na { color: var(--text-dim) !important; font-weight: 500 !important; }
   .razdelek { grid-column: 1 / -1; padding-block: 14px 6px !important; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-muted); }
   @media (max-width: 720px) { .board > .label.mini { padding-top: 10px; } }
+
+  /* vgrajeno v promocijski nacrt (iframe) */
+  html.vgrajeno, html.vgrajeno body { background-attachment: scroll; }
+  html.vgrajeno body { min-height: 0; padding-block: 16px 20px; }
+  html.vgrajeno .logo, html.vgrajeno .sorodno .nacrt { display: none; }
+  html.vgrajeno .brand { grid-template-columns: minmax(0, 1fr) auto; }
 </style>
 
 </head>
 <body>
+<script>if (window.self !== window.top) document.documentElement.classList.add('vgrajeno');</script>
 <div class="page">
   <div class="brand">
     <div class="logo" id="logo" aria-label="hostfulness with Rok Kokalj">
@@ -145,7 +152,7 @@
       </div>
     </div>
     <h1>Instagram: <strong>255 sledilcev</strong>, oglasi od 22. 10. do 21. 11.</h1>
-    <div class="stamp">Instagram @hostfulness<span>stanje 20. 10. 2026 ob 18.40</span></div>
+    <div class="stamp">Instagram @hostfulness<span>stanje 21. 10. 2026 ob 00.08</span></div>
   </div>
 
   <section class="board" aria-label="Organsko in oglasi">
@@ -157,7 +164,7 @@
     <div class="cell"><div class="figure"><span class="unit">€</span>0</div><div class="sub">brez plačila</div></div>
     <div class="cell later"><div class="figure na">še ni</div><div class="sub">od 200 € prvega dela, dostava od 22. 10.</div></div>
     <div class="label">Ogledi<small>organski ogledi reelov in plačani prikazi</small></div>
-    <div class="cell"><div class="figure">47.795</div><div class="sub">52 od 56 reelov (starejši brez Insights)</div></div>
+    <div class="cell"><div class="figure">47.798</div><div class="sub">52 od 56 reelov (starejši brez Insights)</div></div>
     <div class="cell later"><div class="figure na">še ni</div><div class="sub">plačanih prikazov; napoved 75.000 do 150.000 v 90 dneh</div></div>
     <div class="label">Sledilci<small>ljudje, ki so začeli slediti računu</small></div>
     <div class="cell"><div class="figure">255</div><div class="sub">+3 od 6. 10. (252)</div></div>
@@ -165,7 +172,7 @@
 
     <div class="razdelek">Podrobneje</div>
     <div class="label mini">Doseg<small>različni ljudje</small></div>
-    <div class="cell mini"><div class="val">37.918</div><div class="note">vsota po reelih, ne unikatno</div></div>
+    <div class="cell mini"><div class="val">37.923</div><div class="note">vsota po reelih, ne unikatno</div></div>
     <div class="cell later mini"><div class="val na">še ni</div><div class="note">ljudi, ki so videli oglas</div></div>
     <div class="label mini">Cena na 1.000 prikazov<small>CPM</small></div>
     <div class="cell mini"><div class="val">0 €</div><div class="note">organsko</div></div>
@@ -180,7 +187,7 @@
     <div class="cell mini"><div class="val">4,4</div><div class="note">zmagovalci 7 do 10, posnetek 6. 10.</div></div>
     <div class="cell later mini"><div class="val na">še ni</div><div class="note">napoved 2 do 5; 0,80 do 4 €</div></div>
     <div class="label mini">Shranjevanja / deljenja<small></small></div>
-    <div class="cell mini"><div class="val">76 / 140</div><div class="note">cilj: deljenja nad 0</div></div>
+    <div class="cell mini"><div class="val">76 / 140</div><div class="note">deljenja so najmočnejši signal za doseg</div></div>
     <div class="cell later mini"><div class="val na">še ni</div><div class="note">na oglasih</div></div>
     <div class="label mini">Nove objave<small>zadnjih 7 dni</small></div>
     <div class="cell mini"><div class="val">0</div><div class="note">cilj 5 do 7 na teden</div></div>
@@ -194,8 +201,8 @@
   </section>
 
   <nav class="sorodno" aria-label="Sorodne strani">
-    <a href="promocijski-nacrt.html#paid">Promocijski načrt</a>
-    <a href="https://www.instagram.com/hostfulness/">@hostfulness</a>
+    <a class="nacrt" href="promocijski-nacrt.html#porocila-instagram">Promocijski načrt</a>
+    <a href="https://www.instagram.com/hostfulness/" target="_blank" rel="noopener">@hostfulness</a>
   </nav>
 
   <footer>
