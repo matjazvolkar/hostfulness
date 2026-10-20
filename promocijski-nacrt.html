@@ -49,7 +49,44 @@
     border-right: 1px solid var(--white-08);
     padding: 2rem 1.5rem;
     overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     z-index: 100;
+  }
+  .toc::-webkit-scrollbar { display: none; }
+  .toc-group { margin-top: 0.35rem; }
+  .toc-group > summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0.55rem 0.6rem;
+    border-radius: 6px;
+    user-select: none;
+    transition: background 0.2s, color 0.2s;
+  }
+  .toc-group > summary::-webkit-details-marker { display: none; }
+  .toc-group > summary::after {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(-45deg);
+    transition: transform 0.2s;
+    margin-left: 0.6rem;
+    flex: none;
+  }
+  .toc-group[open] > summary::after { transform: rotate(45deg); }
+  .toc-group > summary:hover { background: var(--white-08); color: var(--gold-light); }
+  .toc-group > summary:focus-visible { outline: 1px solid var(--gold-muted); outline-offset: 1px; }
+  .toc-group[open] > summary { color: var(--gold-light); }
+  .toc-group > a { margin-left: 0.4rem; }
+  .toc-group > a:last-child { margin-bottom: 0.4rem; }
+  @media (prefers-reduced-motion: reduce) {
+    .toc-group > summary, .toc-group > summary::after { transition: none; }
   }
   .toc-logo {
     font-family: 'Inter', sans-serif;
@@ -70,7 +107,7 @@
     text-transform: uppercase;
     letter-spacing: 0.15em;
     color: var(--white-40);
-    margin-bottom: 2rem;
+    margin-bottom: 1.2rem;
   }
   .toc-section-label {
     font-size: 0.65rem;
@@ -558,39 +595,46 @@
   <div class="toc-logo"><span class="host">host</span><span class="fulness">fulness</span></div>
   <div class="toc-subtitle">Promocijski načrt</div>
 
-  <div class="toc-section-label">Izhodišče</div>
-  <a href="#reality">Izhodišče + prioritete</a>
-
-  <div class="toc-section-label">Platforme podrobno</div>
-  <a href="#linkedin">LinkedIn</a>
-  <a href="#youtube">YouTube</a>
-  <a href="#spotify">Spotify + Apple</a>
-  <a href="#instagram">Instagram</a>
-  <a href="#facebook">Facebook</a>
-  <a href="#other">TikTok + X</a>
-  <a href="#website">Spletna stran</a>
-
-  <div class="toc-section-label">Sistem</div>
-  <a href="#engine">Content mašina</a>
-  <a href="#guest">Gostova promocija</a>
-  <a href="#community">Skupnost + mediji</a>
-  <a href="#paid">Plačana promocija</a>
-  <a href="#newsletter">Email newsletter</a>
-
-  <div class="toc-section-label">Predloge</div>
-  <a href="#emails">Email predloge</a>
-  <a href="#manifesto">Manifesto</a>
-  <a href="#transcripts">Transkripta epizod</a>
-
-  <div class="toc-section-label">Izvedba</div>
-  <a href="#calendar">Produkcijski koledar</a>
-  <a href="#timeline">12-tedenski načrt</a>
-  <a href="#distribution">Distribucija</a>
-  <a href="#metrics">Merjenje uspeha</a>
-  <a href="#donts">Česa NE počnemo</a>
-
-  <div class="toc-section-label">Poročila</div>
-  <a href="instagram-oglasi-porocilo.html">Instagram oglasi</a>
+  <details class="toc-group">
+    <summary class="toc-section-label">Izhodišče</summary>
+    <a href="#reality">Izhodišče + prioritete</a>
+  </details>
+  <details class="toc-group">
+    <summary class="toc-section-label">Platforme podrobno</summary>
+    <a href="#linkedin">LinkedIn</a>
+    <a href="#youtube">YouTube</a>
+    <a href="#spotify">Spotify + Apple</a>
+    <a href="#instagram">Instagram</a>
+    <a href="#facebook">Facebook</a>
+    <a href="#other">TikTok + X</a>
+    <a href="#website">Spletna stran</a>
+  </details>
+  <details class="toc-group">
+    <summary class="toc-section-label">Sistem</summary>
+    <a href="#engine">Content mašina</a>
+    <a href="#guest">Gostova promocija</a>
+    <a href="#community">Skupnost + mediji</a>
+    <a href="#paid">Plačana promocija</a>
+    <a href="#newsletter">Email newsletter</a>
+  </details>
+  <details class="toc-group">
+    <summary class="toc-section-label">Predloge</summary>
+    <a href="#emails">Email predloge</a>
+    <a href="#manifesto">Manifesto</a>
+    <a href="#transcripts">Transkripta epizod</a>
+  </details>
+  <details class="toc-group">
+    <summary class="toc-section-label">Izvedba</summary>
+    <a href="#calendar">Produkcijski koledar</a>
+    <a href="#timeline">12-tedenski načrt</a>
+    <a href="#distribution">Distribucija</a>
+    <a href="#metrics">Merjenje uspeha</a>
+    <a href="#donts">Česa NE počnemo</a>
+  </details>
+  <details class="toc-group">
+    <summary class="toc-section-label">Poročila</summary>
+    <a href="instagram-oglasi-porocilo.html">Instagram oglasi</a>
+  </details>
 </nav>
 
 <!-- ============ MAIN ============ -->
@@ -3585,6 +3629,19 @@ window.addEventListener('scroll', () => {
   progressBar.style.transform = 'scaleX(' + Math.min(progress, 1) + ')';
 }, { passive: true });
 
+// ---- Zlozljive kategorije v levem meniju (odprta ena naenkrat) ----
+const tocGroups = document.querySelectorAll('.toc-group');
+function odpriSkupino(g) {
+  if (!g) return;
+  if (!g.open) g.open = true;
+  tocGroups.forEach(o => { if (o !== g && o.open) o.open = false; });
+}
+tocGroups.forEach(g => g.addEventListener('toggle', () => {
+  if (g.open) tocGroups.forEach(o => { if (o !== g && o.open) o.open = false; });
+}));
+const zacetna = document.querySelector('.toc a[href="' + location.hash + '"]');
+odpriSkupino(zacetna ? zacetna.closest('.toc-group') : tocGroups[0]);
+
 // ---- Active TOC highlighting ----
 const tocLinks = document.querySelectorAll('.toc a[href^="#"]');
 const sectionEls = [];
@@ -3601,6 +3658,7 @@ const observer = new IntersectionObserver(entries => {
       if (entry.isIntersecting) {
         tocLinks.forEach(l => l.classList.remove('active'));
         match.link.classList.add('active');
+        odpriSkupino(match.link.closest('.toc-group'));
         // Scroll TOC to show active link
         match.link.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
       }
