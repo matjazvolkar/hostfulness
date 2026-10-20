@@ -3617,7 +3617,7 @@ Rok</div>
     <div class="section-number">22</div>
     <h2>Poročilo: Instagram oglasi</h2>
     <p>Organsko stanje računa @hostfulness in rezultati plačanih oglasov na Instagramu. Številke se osvežijo vsak ponedeljek ob 7.30.</p>
-    <iframe id="ig-porocilo" src="instagram-oglasi-porocilo.html" title="Poročilo Instagram oglasov" style="width: 100%; height: 1500px; border: 0; border-radius: 12px; display: block; margin-top: 1.2rem; background: #000;"></iframe>
+    <iframe id="ig-porocilo" src="instagram-oglasi-porocilo.html" title="Poročilo Instagram oglasov" scrolling="no" style="width: 100%; height: 1500px; border: 0; border-radius: 12px; display: block; margin-top: 1.2rem; background: #000;"></iframe>
   </div>
 
   <!-- FOOTER -->
@@ -3662,7 +3662,12 @@ function prilagodiVisino() {
 }
 if (igFrame) {
   igFrame.addEventListener('load', () => { prilagodiVisino(); setTimeout(prilagodiVisino, 1000); });
+  window.addEventListener('load', prilagodiVisino);
   window.addEventListener('resize', prilagodiVisino);
+  // iframe se lahko nalozi, preden se ta skripta izvede: preveri takoj in se nekaj sekund
+  prilagodiVisino();
+  let poskusi = 0;
+  const preverjanje = setInterval(() => { prilagodiVisino(); if (++poskusi >= 10) clearInterval(preverjanje); }, 500);
 }
 
 // ---- Active TOC highlighting ----
