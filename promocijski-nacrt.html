@@ -3657,7 +3657,9 @@ const igFrame = document.getElementById('ig-porocilo');
 function prilagodiVisino() {
   try {
     const d = igFrame.contentDocument;
-    if (d && d.documentElement) igFrame.style.height = d.documentElement.scrollHeight + 'px';
+    const vsebina = d && d.querySelector('.page');
+    // scrollHeight dokumenta nikoli ni manjsi od okvirja, zato merimo dno vsebine
+    if (vsebina) igFrame.style.height = Math.ceil(vsebina.getBoundingClientRect().bottom + 24) + 'px';
   } catch (e) { /* lokalno (file://) dostop ni dovoljen, ostane privzeta visina */ }
 }
 if (igFrame) {
