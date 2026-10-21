@@ -634,7 +634,7 @@
   <details class="toc-group">
     <summary class="toc-section-label">Poročila</summary>
     <a href="#porocila-instagram">Instagram oglasi</a>
-    <a href="https://claude.ai/artifact/XGCXAWyBSDmT3fVWJTb4bQ" target="_blank" rel="noopener" title="Zaseben claude.ai artifact: odpre se samo prijavljenemu lastniku">Strategija IG oglasov ↗</a>
+    <a href="#porocila-strategija">Strategija IG oglasov</a>
   </details>
 </nav>
 
@@ -3621,6 +3621,13 @@ Rok</div>
     <iframe id="ig-porocilo" src="instagram-oglasi-porocilo.html" title="Poročilo Instagram oglasov" scrolling="no" style="width: 100%; height: 1500px; border: 0; border-radius: 12px; display: block; margin-top: 1.2rem; background: #000;"></iframe>
   </div>
 
+  <div class="section" id="porocila-strategija">
+    <div class="section-number">23</div>
+    <h2>Strategija: Instagram oglasi</h2>
+    <p>Analiza računa @hostfulness in strategija plačljivega oglaševanja (6. 10. 2026, popravek deljenj 20. 10.). Odločitve iz 14. 10. so v njenem poglavju 13, sprotni rezultati v razdelku 22.</p>
+    <iframe id="ig-strategija" src="instagram-oglasi-strategija.html" title="Strategija Instagram oglasov" scrolling="no" style="width: 100%; height: 3000px; border: 0; border-radius: 12px; display: block; margin-top: 1.2rem; background: #0b1120;"></iframe>
+  </div>
+
   <!-- FOOTER -->
   <div style="text-align: center; padding: 3rem 48px 2rem; color: var(--white-40); font-size: 0.75rem; border-top: 1px solid rgba(255,255,255,0.08);">
     <div class="toc-logo" style="margin-bottom: 0.5rem; display: inline-block;"><span class="host">host</span><span class="fulness">fulness</span></div><br>
@@ -3653,25 +3660,39 @@ tocGroups.forEach(g => g.addEventListener('toggle', () => {
 const zacetna = document.querySelector('.toc a[href="' + location.hash + '"]');
 odpriSkupino(zacetna ? zacetna.closest('.toc-group') : tocGroups[0]);
 
-// ---- Vgrajeno porocilo: visina po vsebini ----
-const igFrame = document.getElementById('ig-porocilo');
+// ---- Vgrajeni strani (razdelka 22 in 23): visina po vsebini, sidra premikajo nacrt ----
+const vgrajene = [
+  { okvir: document.getElementById('ig-porocilo'), vsebina: '.page' },
+  { okvir: document.getElementById('ig-strategija'), vsebina: '.wrap' },
+].filter(v => v.okvir);
 function prilagodiVisino() {
-  try {
-    const d = igFrame.contentDocument;
-    const vsebina = d && d.querySelector('.page');
-    // scrollHeight dokumenta nikoli ni manjsi od okvirja, zato merimo dno vsebine
-    if (vsebina) igFrame.style.height = Math.ceil(vsebina.getBoundingClientRect().bottom + 24) + 'px';
-  } catch (e) { /* lokalno (file://) dostop ni dovoljen, ostane privzeta visina */ }
+  vgrajene.forEach(({ okvir, vsebina }) => {
+    try {
+      const d = okvir.contentDocument;
+      const el = d && d.querySelector(vsebina);
+      // scrollHeight dokumenta nikoli ni manjsi od okvirja, zato merimo dno vsebine
+      if (el) okvir.style.height = Math.ceil(el.getBoundingClientRect().bottom + 24) + 'px';
+      if (d && !d.__sidra) {
+        d.__sidra = true;
+        // okvir se ne drsa sam, zato klik na sidro znotraj premakne nacrt do cilja
+        d.addEventListener('click', e => {
+          const link = e.target.closest('a[href^="#"]');
+          const cilj = link && d.getElementById(decodeURIComponent(link.getAttribute('href').slice(1)));
+          if (!cilj) return;
+          e.preventDefault();
+          window.scrollTo({ top: okvir.getBoundingClientRect().top + window.scrollY + cilj.getBoundingClientRect().top - 16, behavior: 'smooth' });
+        });
+      }
+    } catch (e) { /* lokalno (file://) dostop ni dovoljen, ostane privzeta visina */ }
+  });
 }
-if (igFrame) {
-  igFrame.addEventListener('load', () => { prilagodiVisino(); setTimeout(prilagodiVisino, 1000); });
-  window.addEventListener('load', prilagodiVisino);
-  window.addEventListener('resize', prilagodiVisino);
-  // iframe se lahko nalozi, preden se ta skripta izvede: preveri takoj in se nekaj sekund
-  prilagodiVisino();
-  let poskusi = 0;
-  const preverjanje = setInterval(() => { prilagodiVisino(); if (++poskusi >= 10) clearInterval(preverjanje); }, 500);
-}
+vgrajene.forEach(({ okvir }) => okvir.addEventListener('load', () => { prilagodiVisino(); setTimeout(prilagodiVisino, 1000); }));
+window.addEventListener('load', prilagodiVisino);
+window.addEventListener('resize', prilagodiVisino);
+// okvir se lahko nalozi, preden se ta skripta izvede: preveri takoj in se nekaj sekund
+prilagodiVisino();
+let poskusi = 0;
+const preverjanje = setInterval(() => { prilagodiVisino(); if (++poskusi >= 10) clearInterval(preverjanje); }, 500);
 
 // ---- Active TOC highlighting ----
 const tocLinks = document.querySelectorAll('.toc a[href^="#"]');
