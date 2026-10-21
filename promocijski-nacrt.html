@@ -635,6 +635,8 @@
     <summary class="toc-section-label">Poročila</summary>
     <a href="#porocila-instagram">Instagram oglasi</a>
     <a href="#porocila-strategija">Strategija IG oglasov</a>
+    <a href="#porocila-linkedin">LinkedIn kampanja</a>
+    <a href="#porocila-projekcija-ig">Projekcija rezultatov Instagram</a>
   </details>
 </nav>
 
@@ -3628,6 +3630,20 @@ Rok</div>
     <iframe id="ig-strategija" src="instagram-oglasi-strategija.html" title="Strategija Instagram oglasov" scrolling="no" style="width: 100%; height: 3000px; border: 0; border-radius: 12px; display: block; margin-top: 1.2rem; background: #0b1120;"></iframe>
   </div>
 
+  <div class="section" id="porocila-linkedin">
+    <div class="section-number">24</div>
+    <h2>Poročilo: LinkedIn kampanja</h2>
+    <p>Video kampanja Hostfulness na LinkedInu za 26.000 ljudi iz slovenskega hotelirstva in gostinstva, 25. 9. do 18. 10. 2026: napoved, stanje 6. 10. in dejanski rezultat ob koncu.</p>
+    <iframe id="li-kampanja" src="linkedin-kampanja-porocilo.html" title="Poročilo LinkedIn kampanje" scrolling="no" style="width: 100%; height: 1800px; border: 0; border-radius: 12px; display: block; margin-top: 1.2rem; background: #000126;"></iframe>
+  </div>
+
+  <div class="section" id="porocila-projekcija-ig">
+    <div class="section-number">25</div>
+    <h2>Projekcija rezultatov Instagram</h2>
+    <p>Organsko stanje reelov in napoved za 90 dni plačanih oglasov od 22. 10. 2026 (200 € na mesec).</p>
+    <iframe id="ig-projekcija" src="instagram-projekcija.html" title="Projekcija rezultatov Instagram" scrolling="no" style="width: 100%; height: 1800px; border: 0; border-radius: 12px; display: block; margin-top: 1.2rem; background: #000126;"></iframe>
+  </div>
+
   <!-- FOOTER -->
   <div style="text-align: center; padding: 3rem 48px 2rem; color: var(--white-40); font-size: 0.75rem; border-top: 1px solid rgba(255,255,255,0.08);">
     <div class="toc-logo" style="margin-bottom: 0.5rem; display: inline-block;"><span class="host">host</span><span class="fulness">fulness</span></div><br>
@@ -3660,10 +3676,12 @@ tocGroups.forEach(g => g.addEventListener('toggle', () => {
 const zacetna = document.querySelector('.toc a[href="' + location.hash + '"]');
 odpriSkupino(zacetna ? zacetna.closest('.toc-group') : tocGroups[0]);
 
-// ---- Vgrajeni strani (razdelka 22 in 23): visina po vsebini, sidra premikajo nacrt ----
+// ---- Vgrajene strani (razdelki 22 do 25): visina po vsebini, sidra premikajo nacrt ----
 const vgrajene = [
   { okvir: document.getElementById('ig-porocilo'), vsebina: '.page' },
   { okvir: document.getElementById('ig-strategija'), vsebina: '.wrap' },
+  { okvir: document.getElementById('li-kampanja'), vsebina: '.page' },
+  { okvir: document.getElementById('ig-projekcija'), vsebina: '.page' },
 ].filter(v => v.okvir);
 function prilagodiVisino() {
   vgrajene.forEach(({ okvir, vsebina }) => {
