@@ -155,6 +155,30 @@
     <div class="stamp">LinkedIn Hostfulness<span>stanje 3. 11. 2026 ob 19.16</span></div>
   </div>
 
+<style>.ocena{--oc:var(--gold-light);--oc-dim:var(--text-dim);--oc-rule:var(--rule);--oc-text:var(--text);--oc-panel:var(--panel)}</style>
+<style>
+  .ocena { margin-bottom: clamp(14px, 2vw, 24px); display: grid; gap: 10px; }
+  .ocena h2 { margin: 0; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--oc-dim); }
+  .ocena .akcija { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 6px clamp(14px, 2.5vw, 28px); align-items: center;
+                   padding: 12px clamp(12px, 2vw, 20px); border: 1px solid var(--oc-rule); border-radius: 6px; background: var(--oc-panel); }
+  .ocena .stev { font-weight: 700; font-variant-numeric: tabular-nums lining-nums; font-size: clamp(34px, 4vw, 48px); line-height: 1; color: var(--oc); grid-row: 1 / 3; min-width: 2.2ch; }
+  .ocena .stev small { font-size: 0.38em; font-weight: 500; color: var(--oc-dim); margin-left: 2px; }
+  .ocena .ime { font-weight: 600; font-size: 14px; color: var(--oc-text); }
+  .ocena .ime span { font-weight: 400; color: var(--oc-dim); }
+  .ocena .ime b { color: var(--oc); font-weight: 700; }
+  .ocena .skala { display: grid; grid-template-columns: repeat(10, 1fr); gap: 3px; height: 10px; }
+  .ocena .skala i { display: block; border-radius: 2px; background: var(--oc-rule); }
+  .ocena .skala i.on { background: var(--oc); }
+  .ocena .merila { grid-column: 2; display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 11.5px; color: var(--oc-dim); margin-top: 2px; }
+  .ocena .merila span b { color: var(--oc-text); font-weight: 600; font-variant-numeric: tabular-nums; }
+  .ocena .merila span.na { opacity: 0.6; }
+  @media (max-width: 720px) { .ocena .akcija { grid-template-columns: auto minmax(0, 1fr); } .ocena .merila { grid-column: 1 / -1; } }
+</style>
+<section class="ocena" aria-label="Ocena uspešnosti">
+  <h2>Ocena uspešnosti kampanj podcasta, 1 do 10</h2>
+  <div class="akcija"><div class="stev">6<small>/10</small></div><div class="ime">Video Hostfulness <span>25. 9. do 18. 10., 378,46 €</span> <b>solidno</b></div><div class="skala" role="img" aria-label="6 od 10"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div><div class="merila"><span class="">CPV <b>9</b> (0,041 €)</span> <span class="">ogledi <b>8</b> (40,8 %)</span> <span class="">do konca <b>4</b> (3,2 %)</span> <span class="">CTR <b>6</b> (0,45 %)</span> <span class="">CPM <b>7</b> (16,88 €)</span> <span class="">sledenja <b>3</b> (0,3)</span></div></div>
+</section>
+
   <section class="board" aria-label="Skupaj in zadnji teden">
     <div class="head blank" aria-hidden="true"></div>
     <div class="head col">Skupaj <span class="when">od 25. 9.</span></div>
@@ -254,6 +278,7 @@
 
   <footer>
     <p>Osveži se vsak dan ob 8.20. Zadnji teden je zadnjih sedem končanih dni. Samo kampanje podcasta Hostfulness; oglasi za Rokove članke Hospitality Abundance so osebna znamka Roka Kokalja in imajo svoje poročilo. Doseg in frekvenca veljata za kampanjo; pri oglasih za vsakega posebej. LinkedIn šteje ogled videa po vsaj 2 sekundah predvajanja na vidnem zaslonu. "Sledenja iz oglasov" so sledenja strani Hostfulness in Rokovemu profilu neposredno iz oglasa; število sledilcev strani vključuje tudi organska. "n/p" pomeni, da podatek ni na voljo.</p>
+    <p>Ocena uspešnosti je zaokroženo povprečje točk po merilih (1 do 10, med pragovi linearno): Cena ogleda videa (CPV): 0,030 € = 10, 0,050 € = 8, 0,080 € = 6, 0,120 € = 4, 0,200 € = 2, 0,300 € = 1; Delež ogledov videa med prikazi: 10,0 % = 2, 20,0 % = 4, 30,0 % = 6, 40,0 % = 8, 50,0 % = 10; Ogled do konca med začetimi: 1,0 % = 2, 3,0 % = 4, 6,0 % = 6, 10,0 % = 8, 15,0 % = 10; Delež klikov (CTR): 0,10 % = 2, 0,25 % = 4, 0,40 % = 6, 0,60 % = 8, 1,00 % = 10; Cena na 1.000 prikazov (CPM): 10,00 € = 10, 15,00 € = 8, 20,00 € = 6, 30,00 € = 4, 45,00 € = 2, 60,00 € = 1; Nova sledenja na 100 € (stran in Rok): 0,0 = 2, 0,5 = 4, 1,5 = 6, 3,0 = 8, 5,0 = 10. Pragovi so običajne vrednosti LinkedIn oglasov za B2B in napoved pred zagonom, ne LinkedInova ocena.</p>
     <p>Vir: LinkedIn Campaign Manager (račun Hostfulness) in stran Hostfulness na LinkedInu. <span class="nevron">Hostfulness je podcast družbe Nevron.</span></p>
   </footer>
 </div>
