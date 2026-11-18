@@ -638,6 +638,7 @@
     <a href="#porocila-linkedin">LinkedIn kampanja</a>
     <a href="#porocila-linkedin-oglasi">LinkedIn oglasi</a>
     <a href="#porocila-projekcija-ig">Projekcija rezultatov Instagram</a>
+    <a href="#porocila-youtube">YouTube epizode</a>
   </details>
 </nav>
 
@@ -3652,6 +3653,13 @@ Rok</div>
     <iframe id="ig-projekcija" src="instagram-projekcija.html" title="Projekcija rezultatov Instagram" scrolling="no" style="width: 100%; height: 1800px; border: 0; border-radius: 12px; display: block; margin-top: 1.2rem; background: #000126;"></iframe>
   </div>
 
+  <div class="section" id="porocila-youtube">
+    <div class="section-number">27</div>
+    <h2>Poročilo: YouTube epizode</h2>
+    <p>Trenutni rezultati epizod podcasta na YouTubu: ure gledanja, ogledi, viri gledalcev in najbolj gledane epizode. Stanje 18. 11. 2026, številke do 16. 11.</p>
+    <iframe id="yt-porocilo" src="youtube-porocilo.html?d=0" onload="if(!this.dataset.svez){this.dataset.svez='1';var d=new Date();this.src='youtube-porocilo.html?d='+d.getFullYear()+(d.getMonth()+101)+(d.getDate()+100)+d.getHours();}" title="Poročilo YouTube epizod" scrolling="no" style="width: 100%; height: 2300px; border: 0; border-radius: 12px; display: block; margin-top: 1.2rem; background: #000;"></iframe>
+  </div>
+
   <!-- FOOTER -->
   <div style="text-align: center; padding: 3rem 48px 2rem; color: var(--white-40); font-size: 0.75rem; border-top: 1px solid rgba(255,255,255,0.08);">
     <div class="toc-logo" style="margin-bottom: 0.5rem; display: inline-block;"><span class="host">host</span><span class="fulness">fulness</span></div><br>
@@ -3684,13 +3692,14 @@ tocGroups.forEach(g => g.addEventListener('toggle', () => {
 const zacetna = document.querySelector('.toc a[href="' + location.hash + '"]');
 odpriSkupino(zacetna ? zacetna.closest('.toc-group') : tocGroups[0]);
 
-// ---- Vgrajene strani (razdelki 22 do 26): visina po vsebini, sidra premikajo nacrt ----
+// ---- Vgrajene strani (razdelki 22 do 27): visina po vsebini, sidra premikajo nacrt ----
 const vgrajene = [
   { okvir: document.getElementById('ig-porocilo'), vsebina: '.page' },
   { okvir: document.getElementById('ig-strategija'), vsebina: '.wrap' },
   { okvir: document.getElementById('li-kampanja'), vsebina: '.page' },
   { okvir: document.getElementById('li-porocilo'), vsebina: '.page' },
   { okvir: document.getElementById('ig-projekcija'), vsebina: '.page' },
+  { okvir: document.getElementById('yt-porocilo'), vsebina: '.page' },
 ].filter(v => v.okvir);
 function prilagodiVisino() {
   vgrajene.forEach(({ okvir, vsebina }) => {
